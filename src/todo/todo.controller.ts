@@ -4,6 +4,7 @@ import { JwtGuard } from '../auth/guard';
 import { TodoService } from './todo.service';
 import { UserId } from '../auth/decorators';
 import { CreateTodoDto, EditTodoDto } from './dto';
+import { TaskService } from '../task/task.service';
 
 
 @UseGuards(JwtGuard)
@@ -11,12 +12,23 @@ import { CreateTodoDto, EditTodoDto } from './dto';
 export class TodoController {
   constructor(
     private todoService: TodoService,
+    private taskService: TaskService,
   ) {}
 
   @Get()
   getTodos(@UserId() userId: number) {
     return this.todoService.getTodos(
       userId
+    )
+  }
+
+  @Get(':id/tasks')
+  getTasksByTodo(
+    @UserId() userId: number,
+    @Param('id', ParseIntPipe) todoId: number) {
+    return this.todoService.getTasksByTodo(
+      todoId,
+      userId,
     )
   }
 

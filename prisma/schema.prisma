@@ -51,10 +51,29 @@ model Task {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  dueDate DateTime @default(now())
   description String
+  status TaskStatus
+  state TaskState 
 
   todoId Int
   todo Todo @relation(fields: [todoId], references: [id])
 
   @@map("tasks")
 }
+
+enum TaskStatus {
+  PENDING
+  COMPLETED
+}
+
+enum TaskState {
+  GREEN
+  AMBER
+  RED
+}
+
+
+
+
+

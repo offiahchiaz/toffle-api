@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { TodoModule } from './todo/todo.module';
+import { TaskModule } from './task/task.module';
 
 
 @Module({
@@ -15,6 +16,7 @@ import { TodoModule } from './todo/todo.module';
     AuthModule, 
     UserModule, 
     TodoModule, 
+    TaskModule,
     PrismaModule
   ],
 })
