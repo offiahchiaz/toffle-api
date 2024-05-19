@@ -44,7 +44,7 @@ lerna-debug.log*
 .env.test
 
 # prisma
-prisma/
+prisma/migrations
 
 # temp directory
 .temp

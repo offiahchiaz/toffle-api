@@ -17,7 +17,7 @@ import { TaskModule } from './task/task.module';
     UserModule, 
     TodoModule, 
     TaskModule,
-    PrismaModule
+    PrismaModule,
   ],
 })
 export class AppModule {}
